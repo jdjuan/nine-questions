@@ -1,9 +1,11 @@
+import { questionSet } from "@/content/questions";
 import MainLayout from "@/pages/main-layout";
 import { ReactElement } from "react";
+import Image from "next/image";
 
 const Done = () => {
   return (
-    <div className='mb-20 grid gap-10'>
+    <div className='grid gap-10'>
       <div className='grid place-items-center gap-8 text-center'>
         <h2 className='mb-2 text-5xl'>Your Score</h2>
         <div className='grid aspect-square w-6/12 place-items-center rounded-full border-4 border-slate-800'>
@@ -18,8 +20,8 @@ const Done = () => {
         {/* <p className='mb-4'>I&apos;ve got something to admit:</p> */}
         <p>
           If you mostly picked men that looked like the stereotypical inventor, you shouldn&apos;t feel guilty. I&apos;d
-          had never imagined that it was a woman the one that invented the circular saw or the car heater. Carpentry or
-          driving cars was mostly a thing for men (and in some places still is).
+          had never imagined that it was a woman who invented the circular saw or the car heater. Carpentry or driving
+          cars was mostly a thing for men (and in some places still is).
         </p>
         <p>
           Indeed the vast majority of inventions are made by men. But why is it so? Are men simply more prone to
@@ -38,9 +40,26 @@ const Done = () => {
           </div>
         </div> */}
       </div>
-      <div className='grid gap-3'>
+      <div className='grid gap-6'>
         <h2 className='text-2xl'>Who are these women?</h2>
-        <p>The circular saw was invented by Tabitha Babbitt in 1812</p>
+        {questionSet.map(({ id, invention, inventor, inventorImageUrl, year, note }) => (
+          <div key={id} className='flex'>
+            <Image
+              src={inventorImageUrl}
+              alt={`Photo of ${inventor}`}
+              priority
+              className='h-fit w-20 rounded-md border border-slate-900'
+            />
+            <div className='pl-2'>
+              <div>
+                <span className='font-semibold capitalize'>
+                  {invention} ({year})
+                </span>
+              </div>
+              <div className='text-xs'>{note}</div>
+            </div>
+          </div>
+        ))}
       </div>
       <div className='grid gap-3'>
         <h2 className='text-2xl'>Who am I?</h2>
@@ -49,7 +68,7 @@ const Done = () => {
           <span className='font-bold'>Nine Questions</span> was the project for February.
         </p>
         <p>
-          If you are curious about March or April will look like, you can{" "}
+          If you are curious about what March or April will look like, you can{" "}
           <a className='underline dark:text-slate-200' href='mailto:david.juanherrera@gmail.com'>
             introduce yourself
           </a>{" "}

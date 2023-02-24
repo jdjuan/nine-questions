@@ -48,9 +48,11 @@ export const questionSet: Question[] = [
   {
     id: "1",
     inventor: "Tabitha Babbitt",
+    inventorImageUrl: tabitha,
     invention: "circular saw",
     inventionImageUrl: circularSaw,
     year: 1812,
+    note: "It's worth noting that Babbitt didn't file a patent at the time of the invention, and this has led to controversy regarding ownership.",
     options: [
       { isCorrect: false, inventorImageUrl: man1 },
       { isCorrect: true, inventorImageUrl: tabitha },
@@ -61,9 +63,11 @@ export const questionSet: Question[] = [
   {
     id: "2",
     inventor: "Margaret Wilcox",
+    inventorImageUrl: margaret,
     invention: "car heater",
     inventionImageUrl: heater,
     year: 1893,
+    note: "In 2020, Inventor's Digest named Wilcox's patent for car heater one of their top ten patents by women.",
     options: [
       { isCorrect: false, inventorImageUrl: man13 },
       { isCorrect: true, inventorImageUrl: margaret },
@@ -74,8 +78,10 @@ export const questionSet: Question[] = [
   {
     id: "3",
     inventor: "Mary Anderson",
+    inventorImageUrl: mary,
     invention: "windscreen wiper",
     inventionImageUrl: windscreen,
+    note: "In 2011 Anderson was inducted into the National Inventors Hall of Fame",
     year: 1903,
     options: [
       { isCorrect: false, inventorImageUrl: man11 },
@@ -87,8 +93,10 @@ export const questionSet: Question[] = [
   {
     id: "4",
     inventor: "Anna Connelly",
+    inventorImageUrl: anna,
     invention: "fire escape",
     inventionImageUrl: escape,
+    note: "She was one of the first women to register a patent for an invention after the Civil War",
     year: 1887,
     options: [
       { isCorrect: false, inventorImageUrl: man20 },
@@ -100,9 +108,11 @@ export const questionSet: Question[] = [
   {
     id: "5",
     inventor: "Lizzie Magie",
+    inventorImageUrl: lizzie,
     invention: "first monopoly game",
     inventionImageUrl: monopoly,
     year: 1903,
+    note: "Lizzie created The Landlord's Game, which was used three decades later by the Parker Brothers to publish a modified version known as Monopoly. They only gave her credit posthumously",
     options: [
       { isCorrect: false, inventorImageUrl: man24 },
       { isCorrect: true, inventorImageUrl: lizzie },
@@ -113,12 +123,14 @@ export const questionSet: Question[] = [
   {
     id: "6",
     inventor: "Bette Nesmith Graham",
+    inventorImageUrl: bette,
     invention: "liquid paper",
     inventionImageUrl: liquid,
     year: 1956,
+    note: "",
     options: [
       { isCorrect: true, inventorImageUrl: bette },
-      { isCorrect: false, inventorImageUrl: man25 },
+      { isCorrect: false, inventorImageUrl: man23 },
       { isCorrect: false, inventorImageUrl: man26 },
       { isCorrect: false, inventorImageUrl: man6 },
     ],
@@ -126,6 +138,7 @@ export const questionSet: Question[] = [
   {
     id: "7",
     inventor: "Florence Parpart",
+    inventorImageUrl: florence,
     invention: "electric refrigerator",
     inventionImageUrl: refrigerator,
     year: 1901,
@@ -139,6 +152,7 @@ export const questionSet: Question[] = [
   {
     id: "8",
     inventor: "Josephine Cochrane",
+    inventorImageUrl: josephine,
     invention: "first successful dishwasher",
     inventionImageUrl: dishwasher,
     year: 1886,
@@ -152,6 +166,7 @@ export const questionSet: Question[] = [
   {
     id: "9",
     inventor: "Ada Lovelace",
+    inventorImageUrl: ada,
     invention: "first algorithm",
     inventionImageUrl: algorithm,
     year: 1843,

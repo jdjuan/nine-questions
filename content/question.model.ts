@@ -5,6 +5,8 @@ export interface Question {
   invention: string;
   inventionImageUrl: StaticImageData;
   inventor: string;
+  inventorImageUrl: StaticImageData;
   year: number;
+  note?: string;
   options: { isCorrect: boolean; inventorImageUrl: StaticImageData }[];
 }
