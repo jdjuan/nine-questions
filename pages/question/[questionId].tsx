@@ -1,12 +1,15 @@
 import { questionSet } from "@/content/questions";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useLocalStorage } from "usehooks-ts";
 
 const Question = () => {
   const router = useRouter();
   const { questionId } = router.query;
+  const [, setAnswer] = useLocalStorage(`answer${questionId}`, true);
   const question = questionSet.find(({ id }) => id === questionId) || questionSet[0];
-  const goToNextQuestion = () => {
+  const goToNextQuestion = (isCorrect: boolean) => {
+    setAnswer(isCorrect);
     const route = question.id === "9" ? "/done" : `/question/${+question.id + 1}`;
     router.push(route);
   };
@@ -32,13 +35,13 @@ const Question = () => {
       {/* OPTIONS */}
       <p>Choose one:</p>
       <div className='mx-auto grid w-11/12 grid-cols-4 place-items-center gap-4 p-4'>
-        {question.options.map(({ inventorImageUrl }, index) => (
+        {question.options.map(({ inventorImageUrl, isCorrect }, index) => (
           <Image
             key={inventorImageUrl.src}
             src={inventorImageUrl}
             alt={`Inventor ${index}`}
             priority
-            onClick={goToNextQuestion}
+            onClick={() => goToNextQuestion(isCorrect)}
             className='rounded-md border-2 border-slate-900 bg-neutral-100 shadow-md'
           />
         ))}
