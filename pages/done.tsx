@@ -44,18 +44,19 @@ const Done = () => {
       <div className='grid gap-4'>
         {!perfectScore && (
           <p>
-            If you mostly picked men that looked like the stereotypical inventor, you shouldn&apos;t feel guilty.
-            I&apos;d had never imagined that it was a woman who invented the circular saw or the car heater. Carpentry
-            or driving cars was mostly a thing for men (and in some places still is).
+            If you picked men that looked like the stereotypical inventor, you shouldn&apos;t feel guilty. Indeed the
+            vast majority of inventions are made by men. But why is it so? Are men simply more prone to innovate? Or are
+            women culturally discouraged from pursuing innovation? Or both? Or none?
           </p>
         )}
         <p>
-          Indeed the vast majority of inventions are made by men. But why is it so? Are men simply more prone to
-          innovate? Or are women culturally discouraged from pursuing innovation? Or both? Or none?
+          The answer is not obvious. Reality is, I&apos;d had never imagined that it was a woman who invented the
+          circular saw or the car heater. Carpentry or driving cars was mostly a thing for men (and in some places still
+          is).
         </p>
         <p>
-          The answer is not obvious. But that was precisely the purpose of this project. To challenge our biases around
-          gender roles in society by highlighting pioneering women who are often overlooked in the public discourse.
+          But that was precisely the purpose of this project. To challenge our biases around gender roles in society by
+          highlighting pioneering women who are often overlooked in the public discourse.
         </p>
         <p>Thanks for taking part!</p>
         {/* <button className='mt-3 mb-2 rounded-md bg-slate-300 py-1 px-3 text-lg shadow-md'>SHARE</button> */}

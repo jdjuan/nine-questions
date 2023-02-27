@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Juan-Herrera-s-workspace-p9a35b.us-west-2.xata.sh/db/nine-questions",
+  "codegen": {
+    "output": "db/xata.ts"
+  }
+}

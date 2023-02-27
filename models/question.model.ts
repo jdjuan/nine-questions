@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { Answer } from "./answer.model";
 
 export interface Question {
   id: string;
@@ -8,5 +9,5 @@ export interface Question {
   inventorImageUrl: StaticImageData;
   year: number;
   note?: string;
-  options: { isCorrect: boolean; inventorImageUrl: StaticImageData }[];
+  answers: Answer[];
 }
