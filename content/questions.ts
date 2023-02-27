@@ -78,7 +78,7 @@ export const questionSet: Question[] = [
     inventorImageUrl: answers.florence.inventorImageUrl,
     invention: "electric refrigerator",
     inventionImageUrl: refrigerator,
-    year: 1901,
+    year: 1914,
     answers: [answers.man22, answers.florence, answers.man26, answers.man16],
   },
   {

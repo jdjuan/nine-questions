@@ -1,6 +1,7 @@
 import { Roboto, Inter } from "@next/font/google";
 import { ReactNode } from "react";
 import Head from "next/head";
+import Script from "next/script";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const roboto = Roboto({ subsets: ["latin"], weight: ["100", "300", "400", "500"], variable: "--font-roboto" });
 type Props = { children?: ReactNode };
@@ -33,17 +34,17 @@ export default function MainLayout({ children }: Props) {
         />
         <meta property='twitter:image' content='https://jdjuan.io/og-card.png'></meta> */}
       </Head>
-      {/* <Script async src='https://www.googletagmanager.com/gtag/js?id=G-K9XYESQ0KL'></Script> */}
-      {/* <Script
+      <Script async src='https://www.googletagmanager.com/gtag/js?id=G-CS7GWP4SEG'></Script>
+      <Script
         id='google-analytics'
         strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-K9XYESQ0KL');`,
+          gtag('config', 'G-CS7GWP4SEG');`,
         }}
-      ></Script> */}
+      ></Script>
       <main className={`${inter.variable} ${roboto.variable} text-md font-ui text-green-400`}>{children}</main>
     </>
   );
