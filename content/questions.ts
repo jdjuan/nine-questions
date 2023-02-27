@@ -20,7 +20,7 @@ export const questionSet: Question[] = [
     year: 1812,
     note: "She didn't patent it though.",
     // note: "It's worth noting that Babbitt didn't file a patent at the time of the invention, and this has led to controversy regarding ownership.",
-    answers: [answers.man1, answers.tabitha, answers.man27, answers.man3],
+    answers: [answers.man1, answers.man3, answers.tabitha, answers.man27],
   },
   {
     id: "2",
@@ -40,7 +40,7 @@ export const questionSet: Question[] = [
     inventionImageUrl: windscreen,
     // note: "In 2011 Anderson was inducted into the National Inventors Hall of Fame",
     year: 1903,
-    answers: [answers.man11, answers.man14, answers.man12, answers.mary],
+    answers: [answers.man11, answers.man14, answers.mary, answers.man12],
   },
   {
     id: "4",

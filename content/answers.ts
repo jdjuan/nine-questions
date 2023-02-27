@@ -7,7 +7,7 @@ import man9 from "../public/man9.jpeg";
 import man10 from "../public/man10.jpeg";
 import man11 from "../public/man11.jpeg";
 import man12 from "../public/man12.webp";
-import man13 from "../public/man13.jpg.webp";
+import man13 from "../public/man13.jpg";
 import man14 from "../public/man14.jpeg";
 import man15 from "../public/man15.jpeg";
 import man16 from "../public/man16.jpeg";

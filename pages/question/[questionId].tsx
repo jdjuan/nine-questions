@@ -4,21 +4,42 @@ import Image from "next/image";
 import { useLocalStorage } from "usehooks-ts";
 import { Answer } from "@/models/answer.model";
 import { AnswerRequest } from "@/models/answer.request";
+import { Question } from "@/models/question.model";
 import axios from "axios";
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import MainLayout from "@/pages/main-layout";
+import cx from "classnames";
 
-const Question = () => {
+const QuestionComponent = () => {
   const router = useRouter();
   const { questionId } = router.query;
   const [, setAnswer] = useLocalStorage(`answer${questionId}`, true);
-  const question = questionSet.find(({ id }) => id === questionId) || questionSet[0];
-  const goToNextQuestion = (answer: Answer) => {
-    setAnswer(answer.isCorrect);
-    const body: AnswerRequest = { questionId: question.id, answerId: answer.id, isCorrect: answer.isCorrect };
+  const [question, setQuestion] = useState<Question>(questionSet[0]);
+
+  useEffect(() => {
+    const question = questionSet.find(({ id }) => id === questionId) || questionSet[0];
+    setQuestion(question);
+  }, [questionId]);
+
+  const goToNextQuestion = (selectedAnswer: Answer) => {
+    const modifiedAnswers = question.answers.map((answer) => {
+      if (answer.id === selectedAnswer.id) {
+        return answer;
+      }
+      return { ...answer, selected: false };
+    });
+    setQuestion({ ...question, answers: modifiedAnswers });
+    setAnswer(selectedAnswer.isCorrect);
+    const body: AnswerRequest = {
+      questionId: question.id,
+      answerId: selectedAnswer.id,
+      isCorrect: selectedAnswer.isCorrect,
+    };
     axios.post("/api/answer", body);
-    const route = question.id === "9" ? "/done" : `/question/${+question.id + 1}`;
-    router.push(route);
+    setTimeout(() => {
+      const route = question.id === "9" ? "/done" : `/question/${+question.id + 1}`;
+      router.push(route);
+    }, 650);
   };
 
   return (
@@ -52,7 +73,12 @@ const Question = () => {
             priority
             placeholder='blur'
             onClick={() => goToNextQuestion(answer)}
-            className='rounded-md border-4 border-green-200 shadow-md'
+            className={cx(
+              "rounded-md border-4 border-green-200 shadow-md transition-all ease-in-out active:scale-110",
+              {
+                "opacity-0 duration-700": answer.selected === false,
+              }
+            )}
           />
         ))}
       </div>
@@ -60,5 +86,5 @@ const Question = () => {
   );
 };
 
-Question.getLayout = (page: ReactElement) => <MainLayout>{page}</MainLayout>;
-export default Question;
+QuestionComponent.getLayout = (page: ReactElement) => <MainLayout>{page}</MainLayout>;
+export default QuestionComponent;

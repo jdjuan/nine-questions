@@ -4,4 +4,5 @@ export interface Answer {
   id: string;
   isCorrect: boolean;
   inventorImageUrl: StaticImageData;
+  selected?: boolean;
 }

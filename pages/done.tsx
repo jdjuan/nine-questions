@@ -3,10 +3,13 @@ import MainLayout from "@/pages/main-layout";
 import { ReactElement, use, useEffect, useState } from "react";
 import Image from "next/image";
 import { useReadLocalStorage } from "usehooks-ts";
+import { useRouter } from "next/router";
+import Button from "@/components/button";
 
 const TOTAL_QUESTIONS = 9;
 
 const Done = () => {
+  const router = useRouter();
   const answers = [
     useReadLocalStorage("answer1"),
     useReadLocalStorage("answer2"),
@@ -44,10 +47,13 @@ const Done = () => {
       <div className='grid gap-4'>
         {!perfectScore && (
           <>
-            <p>If you picked men that looked like the stereotypical inventor, you shouldn&apos;t feel guilty.</p>
             <p>
-              Indeed the vast majority of inventions are made by men. But why is it so? Are men simply more prone to
-              innovation? Or are women culturally discouraged from it? Or both? Or none?
+              If you picked men that looked like the stereotypical inventor, you shouldn&apos;t feel guilty. The vast
+              majority of inventions are made by men.
+            </p>
+            <p>
+              But why is it so? Are men simply more prone to innovation? Or are women culturally discouraged from it? Or
+              both? Or none?
             </p>
           </>
         )}
@@ -118,6 +124,20 @@ const Done = () => {
           </a>{" "}
           in a few weeks.
         </p>
+      </div>
+
+      {/* <Link href='/' scroll={false}>
+        <span className='text-green-200 underline underline-offset-2'>Start</span>
+      </Link> */}
+      <div className='mx-auto w-5/12 border border-green-400'></div>
+      <div className='grid gap-4'>
+        <Button
+          url='https://twitter.com/intent/tweet?text=Nine%20questions%20that%20will%20challenge%20your%20biases%3A%20https%3A%2F%2Fnine-questions.jdjuan.io%2F'
+          target={"_blank"}
+        >
+          SHARE ON TWITTER
+        </Button>
+        <Button url='/'>START AGAIN</Button>
       </div>
     </div>
   );
