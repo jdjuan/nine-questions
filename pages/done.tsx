@@ -41,7 +41,7 @@ const Done = () => {
           </div>
           <div>
             <p className='mb-2 font-light'>{perfectScore ? "Well done!" : "By the way:"}</p>
-            <p className='font-semibold'>
+            <p className='px-8 font-semibold'>
               {perfectScore ? "As you noticed, a" : "A"}ll the inventions we showed you were made by women.
             </p>
           </div>

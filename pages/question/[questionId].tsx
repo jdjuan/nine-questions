@@ -19,9 +19,9 @@ const QuestionComponent: NextPageWithLayout = () => {
   const [, setAnswer] = useLocalStorage(`answer${questionId}`, true);
   const [question, setQuestion] = useState<Question>(questionSet[0]);
   useTimeout(() => {
-    const question = questionSet.find(({ id }) => id === questionId) || questionSet[0];
-    setQuestion(question);
-  }, 0);
+    const questionFound = questionSet.find(({ id }) => id === questionId) || questionSet[0];
+    setQuestion(questionFound);
+  }, 40);
 
   // useEffect(() => {
   //   const question = questionSet.find(({ id }) => id === questionId) || questionSet[0];
@@ -45,7 +45,7 @@ const QuestionComponent: NextPageWithLayout = () => {
     axios.post("/api/answer", body);
     setTimeout(() => {
       const route = question.id === "9" ? "/done" : `/question/${+question.id + 1}`;
-      router.push(route);
+      router.push(route, undefined, { scroll: false });
     }, 650);
   };
 
