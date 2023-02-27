@@ -24,7 +24,7 @@ const Button: NextPage<Props> = ({ handleClick, children, url, target }) => {
       {handleClick && (
         <button
           onClick={handleClick}
-          className='rounded-md bg-yellow py-2 px-4 text-xl text-green-900 shadow-md transition-all ease-in-out active:scale-110'
+          className='rounded-md bg-yellow py-2 px-4 text-xl text-green-900 shadow-md transition-all ease-in-out hover:scale-110 active:scale-110'
         >
           {children}
         </button>

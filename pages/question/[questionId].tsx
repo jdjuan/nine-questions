@@ -6,12 +6,13 @@ import { Answer } from "@/models/answer.model";
 import { AnswerRequest } from "@/models/answer.request";
 import { Question } from "@/models/question.model";
 import axios from "axios";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useState } from "react";
 import MainLayout from "@/components/main-layout";
 import cx from "classnames";
 import { NextPageWithLayout } from "@/pages/_app";
 import AnimatedLayout from "@/components/animated-layout";
 import { useTimeout } from "usehooks-ts";
+import { isDev } from "@/utils/utils";
 
 const QuestionComponent: NextPageWithLayout = () => {
   const router = useRouter();
@@ -28,18 +29,24 @@ const QuestionComponent: NextPageWithLayout = () => {
   //   setQuestion(question);
   // }, [questionId]);
 
+  const storeAnswer = (selectedAnswer: Answer) => {
+    if (!isDev) {
+      const body: AnswerRequest = {
+        questionId: question.id,
+        answerId: selectedAnswer.id,
+        isCorrect: selectedAnswer.isCorrect,
+      };
+      axios.post("/api/answer", body);
+    }
+  };
+
   const goToNextQuestion = (selectedAnswer: Answer) => {
     const modifiedAnswers = question.answers.map((answer) => {
       return { ...answer, selected: answer.id === selectedAnswer.id };
     });
+    storeAnswer(selectedAnswer);
     setQuestion({ ...question, answers: modifiedAnswers });
     setAnswer(selectedAnswer.isCorrect);
-    const body: AnswerRequest = {
-      questionId: question.id,
-      answerId: selectedAnswer.id,
-      isCorrect: selectedAnswer.isCorrect,
-    };
-    axios.post("/api/answer", body);
     setTimeout(() => {
       const route = question.id === "9" ? "/done" : `/question/${+question.id + 1}`;
       router.push(route, undefined, { scroll: false });
@@ -56,35 +63,42 @@ const QuestionComponent: NextPageWithLayout = () => {
             {question.id === "6" && <p className='mt-2 text-sm'>(3 questions left!)</p>}
           </div>
         </h2>
-        <div className='mt-8 grid place-items-center gap-8 px-8'>
-          <h3 className='text-lg'>
-            Who invented the <span className='text-green-200 underline underline-offset-2'>{question?.invention}</span>?
-          </h3>
-          <Image
-            src={question?.inventionImageUrl}
-            alt='Invention Picture'
-            priority
-            placeholder='blur'
-            className='w-10/12 rounded-md border-2 border-green-200'
-          />
-        </div>
-        {/* <p className='mt-10 mb-2 px-16'>Pick the person your gut feeling tells you:</p> */}
-        <p className='mt-10 mb-2 px-16'>Pick the person who most likely invented this:</p>
-        <div className='mx-auto grid w-11/12 grid-cols-2 place-items-center gap-4 p-4'>
-          {question.answers.map((answer, index) => (
+        <div className='grid'>
+          <div className='mt-8 grid place-items-center gap-8 px-8 md:gap-4'>
+            <h3 className='text-lg'>
+              Who invented the{" "}
+              <span className='text-green-200 underline underline-offset-2'>{question?.invention}</span>?
+            </h3>
             <Image
-              key={answer.inventorImageUrl.src}
-              src={answer.inventorImageUrl}
-              alt={`Inventor ${index}`}
+              src={question?.inventionImageUrl}
+              alt='Invention Picture'
               priority
               placeholder='blur'
-              onClick={() => goToNextQuestion(answer)}
-              className={cx("rounded-md border-4 border-green-200 shadow-md transition-all duration-700 ease-in-out", {
-                "opacity-0": answer.selected === false,
-                "scale-110": answer.selected === true,
-              })}
+              className='w-10/12 max-w-[12rem] rounded-md border-2 border-green-200'
             />
-          ))}
+          </div>
+          <div>
+            <p className='mt-10 mb-2 px-16'>Pick the person who most likely invented this:</p>
+            <div className='lg mx-auto grid w-11/12 max-w-3xl grid-cols-2 place-items-center gap-4 p-4 md:grid-cols-4 md:gap-0'>
+              {question.answers.map((answer, index) => (
+                <Image
+                  key={answer.inventorImageUrl.src}
+                  src={answer.inventorImageUrl}
+                  alt={`Inventor ${index}`}
+                  priority
+                  placeholder='blur'
+                  onClick={() => goToNextQuestion(answer)}
+                  className={cx(
+                    "max-w-[8rem] cursor-pointer rounded-md border-4 border-green-200 shadow-md transition-all ease-in-out hover:scale-110",
+                    {
+                      "opacity-0 duration-700": answer.selected === false,
+                      "scale-110 duration-700": answer.selected === true,
+                    }
+                  )}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </AnimatedLayout>

@@ -33,10 +33,10 @@ const Done = () => {
 
   return (
     <AnimatedLayout>
-      <div className='m-8 grid gap-10 sm:m-12 md:m-16 lg:mx-auto lg:max-w-6xl'>
+      <div className='m-8 grid gap-10 sm:m-12 md:m-16 md:mx-auto md:max-w-prose'>
         <div className='grid place-items-center gap-8 text-center text-green-200'>
           <h2 className='mb-2 font-headline text-5xl font-bold'>Your Score</h2>
-          <div className='grid aspect-square w-6/12 place-items-center rounded-full border-8 border-yellow'>
+          <div className='grid aspect-square w-6/12 max-w-[10rem] place-items-center rounded-full border-8 border-yellow'>
             <span className='text-5xl font-bold text-yellow'>{score}</span>
           </div>
           <div>
@@ -59,13 +59,23 @@ const Done = () => {
               </p>
             </>
           )}
+          {perfectScore && (
+            <p>
+              In reality, the vast majority of inventions are made by men. But why is it so? Are men simply more{" "}
+              <span className='text-green-200'>prone to innovation</span>? Or are women{" "}
+              <span className='text-green-200'>culturally discouraged</span> from it? Or both? Or none?
+            </p>
+          )}
           <p>
-            The answer is not obvious. Reality is, I&apos;d had never imagined it was a woman who invented the circular
-            saw or the car heater. Carpentry or driving cars was mostly a thing for men (and in some places still is).
+            The answer is not obvious. Reality is, I&apos;d had never imagined it was a woman who invented the{" "}
+            <span className='text-green-200'>circular saw</span> or the{" "}
+            <span className='text-green-200'>car heater</span>. Carpentry or driving cars was mostly a thing for men
+            (and in some places still is).
           </p>
           <p>
-            But that was precisely the purpose of this project. To challenge our biases around gender roles in society
-            by highlighting pioneering women who are often overlooked in the public discourse.
+            But that was precisely the <span className='text-green-200'>purpose</span> of this project. To{" "}
+            <span className='text-green-200'>challenge our biases around gender roles</span> in society by highlighting
+            pioneering women who are often overlooked in the public discourse.
           </p>
           <p>Thanks for taking part!</p>
         </div>
@@ -77,36 +87,38 @@ const Done = () => {
       </div> */}
         <div className='grid gap-4'>
           <h2 className='font-headline text-2xl text-green-200'>Who are these women?</h2>
-          {questionSet.map(({ id, invention, inventor, inventorImageUrl, year, note }) => (
-            <div key={id} className='flex rounded-lg  bg-green-900 p-4 text-green-200'>
-              <Image
-                src={inventorImageUrl}
-                alt={`Photo of ${inventor}`}
-                priority
-                className='h-fit w-20 rounded-md border-green-200'
-              />
-              <div className='pl-4'>
-                <div>
-                  <span className='text-lg capitalize'>
-                    {inventor}
-                    {/* {invention} ({year}) */}
-                  </span>
-                </div>
-                <div className='text-sm font-extralight'>
-                  <span className='capitalize'>
-                    {invention} ({year})
-                  </span>
-                </div>
-                {/* <div className='text-sm'>
+          <div className='grid gap-4 md:grid-cols-2'>
+            {questionSet.map(({ id, invention, inventor, inventorImageUrl, year, note }) => (
+              <div key={id} className='flex rounded-lg  bg-green-900 p-4 text-green-200'>
+                <Image
+                  src={inventorImageUrl}
+                  alt={`Photo of ${inventor}`}
+                  priority
+                  className='h-fit w-20 rounded-md border-green-200'
+                />
+                <div className='pl-4'>
+                  <div>
+                    <span className='text-lg capitalize'>
+                      {inventor}
+                      {/* {invention} ({year}) */}
+                    </span>
+                  </div>
+                  <div className='text-sm font-extralight'>
+                    <span className='capitalize'>
+                      {invention} ({year})
+                    </span>
+                  </div>
+                  {/* <div className='text-sm'>
                 Year: <span className='font-semibold'>{year}</span>
               </div> */}
-                {/* <div className='text-sm'>
+                  {/* <div className='text-sm'>
                 Invented the <span className='font-bold'>{invention}</span> in {year}.
               </div> */}
-                {/* <div className='mt-2 text-xs'>{note}</div> */}
+                  {/* <div className='mt-2 text-xs'>{note}</div> */}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         <div className='grid gap-3'>
           <h2 className='font-headline text-2xl text-green-200'>Who am I?</h2>

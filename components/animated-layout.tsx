@@ -8,13 +8,13 @@ interface Props {
 
 const AnimatedLayout: NextPage<Props> = ({ children }) => (
   <motion.div
-    initial={{ x: 350, opacity: 0 }}
+    initial={{ x: "50vw", opacity: 0 }}
     animate={{ x: 0, opacity: 1 }}
-    exit={{ x: -350, opacity: 0 }}
+    exit={{ x: "-50vw", opacity: 0 }}
     transition={{
       type: "spring",
-      stiffness: 260,
-      damping: 20,
+      stiffness: 300,
+      damping: 30,
     }}
   >
     {children}
