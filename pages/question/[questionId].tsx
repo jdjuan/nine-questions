@@ -24,11 +24,6 @@ const QuestionComponent: NextPageWithLayout = () => {
     setQuestion(questionFound);
   }, 0);
 
-  useEffect(() => {
-    const question = questionSet.find(({ id }) => id === questionId) || questionSet[0];
-    setQuestion(question);
-  }, [questionId]);
-
   const storeAnswer = (selectedAnswer: Answer) => {
     if (!isDev && question) {
       const body: AnswerRequest = {
