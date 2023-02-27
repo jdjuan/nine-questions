@@ -1,30 +1,11 @@
 import { Roboto, Inter } from "@next/font/google";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import Head from "next/head";
-// import Footer from "./footer";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const roboto = Roboto({ subsets: ["latin"], weight: ["100", "300", "400", "500"], variable: "--font-roboto" });
 type Props = { children?: ReactNode };
-// import { useDarkMode } from "usehooks-ts";
-import Script from "next/script";
-import AnimatedLayout from "@/components/animated-layout";
 
 export default function MainLayout({ children }: Props) {
-  //   const { isDarkMode, toggle } = useDarkMode();
-  //   const [darkModeEmoji, setDarkModeEmoji] = useState<string>();
-  //   useEffect(() => {
-  //     if (isDarkMode) {
-  //       setTimeout(() => {
-  //         setDarkModeEmoji("🌝");
-  //       }, 200);
-  //       document.documentElement.classList.add("dark");
-  //     } else {
-  //       setTimeout(() => {
-  //         setDarkModeEmoji("🌚");
-  //       }, 200);
-  //       document.documentElement.classList.remove("dark");
-  //     }
-  //   }, [isDarkMode]);
   return (
     <>
       <Head>
@@ -32,8 +13,8 @@ export default function MainLayout({ children }: Props) {
 
         {/* Primary Meta Tags */}
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        {/* <meta name='title' content='Juan Herrera' />
-        <meta name='description' content="Find my latest insights on the topics I'm most passionate about." /> */}
+        <meta name='title' content='Nine Questions' />
+        <meta name='description' content='Guess who invented what based on their looks.' />
         <link rel='icon' href='/favicon.ico' />
 
         {/* Open Graph / Facebook */}
@@ -63,16 +44,7 @@ export default function MainLayout({ children }: Props) {
           gtag('config', 'G-K9XYESQ0KL');`,
         }}
       ></Script> */}
-      <main className={`${inter.variable} ${roboto.variable} text-md font-ui text-green-400`}>
-        {/* <button
-            onClick={toggle}
-            className='absolute top-4 right-4 rounded-full p-0.5 px-1 text-3xl shadow-sm dark:bg-slate-700 '
-          >
-            {darkModeEmoji}
-          </button> */}
-        {children}
-        {/* <Footer></Footer> */}
-      </main>
+      <main className={`${inter.variable} ${roboto.variable} text-md font-ui text-green-400`}>{children}</main>
     </>
   );
 }

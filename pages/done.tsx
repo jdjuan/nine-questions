@@ -50,19 +50,20 @@ const Done = () => {
           {!perfectScore && (
             <>
               <p>
-                If you picked men that looked like the stereotypical inventor, you shouldn&apos;t feel guilty. The vast
-                majority of inventions are made by men.
+                If you picked men that looked like the stereotypical inventor,{" "}
+                <span className='text-green-200'>you shouldn&apos;t feel guilty.</span> The vast majority of inventions
+                are made by men.
               </p>
               <p>
-                But why is it so? Are men simply more prone to innovation? Or are women culturally discouraged from it?
-                Or both? Or none?
+                But why is it so? Are men simply more <span className='text-green-200'>prone to innovation?</span> Or
+                are women <span className='text-green-200'>culturally discouraged</span> from it? Or both? Or none?
               </p>
             </>
           )}
           {perfectScore && (
             <p>
               In reality, the vast majority of inventions are made by men. But why is it so? Are men simply more{" "}
-              <span className='text-green-200'>prone to innovation</span>? Or are women{" "}
+              <span className='text-green-200'>prone to innovation?</span> Or are women{" "}
               <span className='text-green-200'>culturally discouraged</span> from it? Or both? Or none?
             </p>
           )}
