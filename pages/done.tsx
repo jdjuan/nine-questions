@@ -2,15 +2,18 @@ import { questionSet } from "@/content/questions";
 import MainLayout from "@/components/main-layout";
 import { ReactElement, use, useEffect, useState } from "react";
 import Image from "next/image";
-import { useReadLocalStorage } from "usehooks-ts";
+import { useCopyToClipboard, useReadLocalStorage } from "usehooks-ts";
 import { useRouter } from "next/router";
 import Button from "@/components/button";
 import AnimatedLayout from "@/components/animated-layout";
+import { isDev } from "@/utils/utils";
 
 const TOTAL_QUESTIONS = 9;
 
 const Done = () => {
+  const [value, copy] = useCopyToClipboard();
   const router = useRouter();
+  const [copyLinkText, setCopyLinkText] = useState("COPY LINK");
   const answers = [
     useReadLocalStorage("answer1"),
     useReadLocalStorage("answer2"),
@@ -22,6 +25,11 @@ const Done = () => {
     useReadLocalStorage("answer8"),
     useReadLocalStorage("answer9"),
   ];
+  useEffect(() => {
+    if (answers[0] === null && !isDev) {
+      router.push("/");
+    }
+  }, []);
   const correctAnswerCount = answers.filter((isCorrect) => isCorrect).length;
   const scoreValue = (correctAnswerCount / TOTAL_QUESTIONS) * 100;
   const [score, setScore] = useState<string>();
@@ -79,6 +87,23 @@ const Done = () => {
             pioneering women who are often overlooked in the public discourse.
           </p>
           <p>Thanks for taking part!</p>
+        </div>
+
+        <div className='grid rounded-xl border-2 p-5 pt-1 text-center text-sm'>
+          <p className='p-2'>
+            Know someone who could be inspired by this project? Or someone who needs a reminder?
+            <br />
+            <br />
+            <span className='text-green-200'>Share the link with them:</span>
+          </p>
+          <Button
+            handleClick={() => {
+              setCopyLinkText("COPIED!");
+              copy("https://nine-questions.jdjuan.io");
+            }}
+          >
+            {copyLinkText}
+          </Button>
         </div>
         {/* <div>
       <Button handleClick={(startGame)}>START</Button>

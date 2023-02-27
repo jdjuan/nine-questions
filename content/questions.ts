@@ -5,9 +5,9 @@ import dishwasher from "../public/dishwasher.png";
 import windscreen from "../public/windscreen.jpeg";
 import heater from "../public/heater.webp";
 import escape from "../public/escape.webp";
-import monopoly from "../public/monopoly.jpeg";
+import monopoly from "../public/monopoly.webp";
 import refrigerator from "../public/refrigerator.jpeg";
-import liquid from "../public/liquid.jpeg";
+import liquid from "../public/liquid.webp";
 import { answers } from "@/content/answers";
 
 export const questionSet: Question[] = [
