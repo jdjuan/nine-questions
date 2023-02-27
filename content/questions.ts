@@ -97,6 +97,6 @@ export const questionSet: Question[] = [
     invention: "first algorithm",
     inventionImageUrl: algorithm,
     year: 1843,
-    answers: [answers.ada, answers.man10, answers.man5, answers.man15],
+    answers: [answers.man10, answers.man5, answers.man15, answers.ada],
   },
 ];

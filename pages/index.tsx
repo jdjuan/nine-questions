@@ -2,6 +2,7 @@ import MainLayout from "@/pages/main-layout";
 import { NextPageWithLayout } from "@/pages/_app";
 import { ReactElement } from "react";
 import { useRouter } from "next/router";
+import Button from "@/components/button";
 
 export const Home: NextPageWithLayout = () => {
   const router = useRouter();
@@ -11,16 +12,17 @@ export const Home: NextPageWithLayout = () => {
   };
 
   return (
-    <div className='center grid place-items-center gap-10 text-center'>
-      <h1 className='text-4xl'>Nine Questions</h1>
-      <h2 className='text-xl'>A game in which your gut feeling is more important than your knowledge</h2>
-      <p className='mt-6'>
-        Guess <span className='font-bold'>who</span> invented <span className='font-bold'>what</span> based{" "}
-        <span className='font-bold'>only</span> on <span className=''>what their face look like</span>.
-      </p>
-      <button onClick={startGame} className='mt-10 rounded-md bg-slate-300 py-2 px-4 text-xl shadow-md'>
-        START
-      </button>
+    <div className='center m-8 grid place-items-center gap-10 text-center sm:m-12 md:m-16 lg:mx-auto lg:max-w-6xl'>
+      <h1 className='font-headline text-4xl text-green-200'>Nine Questions</h1>
+      <h2 className='text-xl font-light'>A game in which your gut feeling is more important than your knowledge</h2>
+      <div>
+        <p className='mb-6  p-4'>
+          Guess <span className='font-bold text-green-200'>who</span> invented{" "}
+          <span className='font-bold text-green-200'>what</span> based{" "}
+          <span className='font-bold text-green-200'>only</span> on <span className=''>what their face look like</span>.
+        </p>
+        <Button handleClick={startGame}>START</Button>
+      </div>
     </div>
   );
 };

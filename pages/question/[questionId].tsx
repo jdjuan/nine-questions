@@ -5,6 +5,8 @@ import { useLocalStorage } from "usehooks-ts";
 import { Answer } from "@/models/answer.model";
 import { AnswerRequest } from "@/models/answer.request";
 import axios from "axios";
+import { ReactElement } from "react";
+import MainLayout from "@/pages/main-layout";
 
 const Question = () => {
   const router = useRouter();
@@ -21,26 +23,27 @@ const Question = () => {
 
   return (
     <div className='text-center'>
-      <div className='grid place-items-center gap-10 p-8'>
-        <div>
-          <h2 className='text-3xl'>{question.id !== "9" ? `Question #${question.id}` : "Last Question!"}</h2>
+      <h2 className='bg-yellow p-5 font-headline text-3xl font-semibold text-green-900'>
+        {question.id !== "9" ? `QUESTION #${question.id}` : "Last Question!"}
+        <div className='font-normal'>
           {question.id === "3" && <p className='mt-2 text-sm'>(6 questions left!)</p>}
           {question.id === "6" && <p className='mt-2 text-sm'>(3 questions left!)</p>}
         </div>
-
-        <h3>
-          Who invented the <span className='underline underline-offset-2'>{question?.invention}</span>?
+      </h2>
+      <div className='mt-8 grid place-items-center gap-8 px-8'>
+        <h3 className='text-lg'>
+          Who invented the <span className='text-green-200 underline underline-offset-2'>{question?.invention}</span>?
         </h3>
         <Image
           src={question?.inventionImageUrl}
           alt='Invention Picture'
           priority
           placeholder='blur'
-          className='w-10/12 rounded-md border border-slate-900'
+          className='w-10/12 rounded-md border-2 border-green-200'
         />
       </div>
-      <p className='px-10'>Pick the person who most likely invented this based on their looks:</p>
-      <div className='mx-auto grid w-11/12 grid-cols-4 place-items-center gap-4 p-4'>
+      <p className='mt-10 mb-2 px-10'>Pick the person who most likely invented this based on their looks:</p>
+      <div className='mx-auto grid w-11/12 grid-cols-2 place-items-center gap-4 p-4'>
         {question.answers.map((answer, index) => (
           <Image
             key={answer.inventorImageUrl.src}
@@ -49,7 +52,7 @@ const Question = () => {
             priority
             placeholder='blur'
             onClick={() => goToNextQuestion(answer)}
-            className='rounded-md border-2 border-slate-900 bg-neutral-100 shadow-md'
+            className='rounded-md border-4 border-green-200 shadow-md'
           />
         ))}
       </div>
@@ -57,4 +60,5 @@ const Question = () => {
   );
 };
 
+Question.getLayout = (page: ReactElement) => <MainLayout>{page}</MainLayout>;
 export default Question;

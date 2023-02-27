@@ -28,14 +28,14 @@ const Done = () => {
   }, [scoreValue]);
 
   return (
-    <div className='grid gap-10'>
-      <div className='grid place-items-center gap-8 text-center'>
-        <h2 className='mb-2 text-5xl'>Your Score</h2>
-        <div className='grid aspect-square w-6/12 place-items-center rounded-full border-4 border-slate-800'>
-          <span className='text-5xl'>{score}</span>
+    <div className='m-8 grid gap-10 sm:m-12 md:m-16 lg:mx-auto lg:max-w-6xl'>
+      <div className='grid place-items-center gap-8 text-center text-green-200'>
+        <h2 className='mb-2 font-headline text-5xl font-bold'>Your Score</h2>
+        <div className='grid aspect-square w-6/12 place-items-center rounded-full border-8 border-yellow'>
+          <span className='text-5xl font-bold text-yellow'>{score}</span>
         </div>
         <div>
-          <p className='mb-2'>{perfectScore ? "Well done!" : "By the way:"}</p>
+          <p className='mb-2 font-light'>{perfectScore ? "Well done!" : "By the way:"}</p>
           <p className='font-semibold'>
             {perfectScore ? "As you noticed, a" : "A"}ll the inventions we showed you were made by women.
           </p>
@@ -43,11 +43,13 @@ const Done = () => {
       </div>
       <div className='grid gap-4'>
         {!perfectScore && (
-          <p>
-            If you picked men that looked like the stereotypical inventor, you shouldn&apos;t feel guilty. Indeed the
-            vast majority of inventions are made by men. But why is it so? Are men simply more prone to innovate? Or are
-            women culturally discouraged from pursuing innovation? Or both? Or none?
-          </p>
+          <>
+            <p>If you picked men that looked like the stereotypical inventor, you shouldn&apos;t feel guilty.</p>
+            <p>
+              Indeed the vast majority of inventions are made by men. But why is it so? Are men simply more prone to
+              innovation? Or are women culturally discouraged from it? Or both? Or none?
+            </p>
+          </>
         )}
         <p>
           The answer is not obvious. Reality is, I&apos;d had never imagined that it was a woman who invented the
@@ -59,32 +61,31 @@ const Done = () => {
           highlighting pioneering women who are often overlooked in the public discourse.
         </p>
         <p>Thanks for taking part!</p>
-        {/* <button className='mt-3 mb-2 rounded-md bg-slate-300 py-1 px-3 text-lg shadow-md'>SHARE</button> */}
-        {/* <div className='grid place-items-center'>
-          <div className='rounded-md border border-slate-900 p-2 text-center text-sm font-light'>
-            Share this with someone who could use the reminder that women also had their fair share of inventions.
-            <br />
-          </div>
-        </div> */}
       </div>
+      {/* <div>
+      <Button handleClick={(startGame)}>START</Button>
+        <a className='' href='https://twitter.com/intent/tweet?text=Hello%20world'>
+          Tweet
+        </a>
+      </div> */}
       <div className='grid gap-4'>
-        <h2 className='text-2xl'>Who are these women?</h2>
+        <h2 className='font-headline text-2xl text-green-200'>Who are these women?</h2>
         {questionSet.map(({ id, invention, inventor, inventorImageUrl, year, note }) => (
-          <div key={id} className='flex rounded-lg bg-slate-300 p-4'>
+          <div key={id} className='flex rounded-lg  bg-green-900 p-4 text-green-200'>
             <Image
               src={inventorImageUrl}
               alt={`Photo of ${inventor}`}
               priority
-              className='h-fit w-20 rounded-md border border-slate-900'
+              className='h-fit w-20 rounded-md border-green-200'
             />
-            <div className='pl-2'>
+            <div className='pl-4'>
               <div>
-                <span className='text-lg font-medium capitalize'>
+                <span className='text-lg capitalize'>
                   {inventor}
                   {/* {invention} ({year}) */}
                 </span>
               </div>
-              <div className='text-sm'>
+              <div className='text-sm font-extralight'>
                 <span className='capitalize'>
                   {invention} ({year})
                 </span>
@@ -101,17 +102,21 @@ const Done = () => {
         ))}
       </div>
       <div className='grid gap-3'>
-        <h2 className='text-2xl'>Who am I?</h2>
+        <h2 className='font-headline text-2xl text-green-200'>Who am I?</h2>
         <p>
           My name is Juan Herrera, and I&apos;m currently building a project a month.{" "}
-          <span className='font-bold'>Nine Questions</span> was the project for February.
+          <span className='font-semibold text-green-200'>Nine Questions</span> was the project I built in February.
         </p>
         <p>
           If you are curious about what March or April will look like, you can{" "}
-          <a className='underline dark:text-slate-200' href='mailto:david.juanherrera@gmail.com'>
+          <a className='text-green-200 underline' href='mailto:david.juanherrera@gmail.com'>
             introduce yourself
           </a>{" "}
-          in an email to get updates, or simply check my personal website in a few weeks.
+          in an email or simply check my{" "}
+          <a className='text-green-200 underline' href='https://jdjuan.io/' target='_blank' rel='noreferrer'>
+            personal website
+          </a>{" "}
+          in a few weeks.
         </p>
       </div>
     </div>

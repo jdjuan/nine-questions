@@ -62,17 +62,15 @@ export default function MainLayout({ children }: Props) {
           gtag('config', 'G-K9XYESQ0KL');`,
         }}
       ></Script> */}
-      <main className={`${inter.variable} ${roboto.variable}j text-md relative text-neutral-800 dark:text-slate-50`}>
-        <div className='m-8 sm:m-12 md:m-16 lg:mx-auto lg:max-w-6xl'>
-          {/* <button
+      <main className={`${inter.variable} ${roboto.variable} text-md font-ui text-green-400`}>
+        {/* <button
             onClick={toggle}
             className='absolute top-4 right-4 rounded-full p-0.5 px-1 text-3xl shadow-sm dark:bg-slate-700 '
           >
             {darkModeEmoji}
           </button> */}
-          {children}
-          {/* <Footer></Footer> */}
-        </div>
+        {children}
+        {/* <Footer></Footer> */}
       </main>
     </>
   );
