@@ -7,6 +7,7 @@ const roboto = Roboto({ subsets: ["latin"], weight: ["100", "300", "400", "500"]
 type Props = { children?: ReactNode };
 // import { useDarkMode } from "usehooks-ts";
 import Script from "next/script";
+import AnimatedLayout from "@/components/animated-layout";
 
 export default function MainLayout({ children }: Props) {
   //   const { isDarkMode, toggle } = useDarkMode();
