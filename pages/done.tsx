@@ -60,9 +60,8 @@ const Done = () => {
             </>
           )}
           <p>
-            The answer is not obvious. Reality is, I&apos;d had never imagined that it was a woman who invented the
-            circular saw or the car heater. Carpentry or driving cars was mostly a thing for men (and in some places
-            still is).
+            The answer is not obvious. Reality is, I&apos;d had never imagined it was a woman who invented the circular
+            saw or the car heater. Carpentry or driving cars was mostly a thing for men (and in some places still is).
           </p>
           <p>
             But that was precisely the purpose of this project. To challenge our biases around gender roles in society

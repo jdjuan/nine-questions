@@ -21,7 +21,7 @@ const QuestionComponent: NextPageWithLayout = () => {
   useTimeout(() => {
     const questionFound = questionSet.find(({ id }) => id === questionId) || questionSet[0];
     setQuestion(questionFound);
-  }, 40);
+  }, 10);
 
   // useEffect(() => {
   //   const question = questionSet.find(({ id }) => id === questionId) || questionSet[0];
@@ -30,10 +30,7 @@ const QuestionComponent: NextPageWithLayout = () => {
 
   const goToNextQuestion = (selectedAnswer: Answer) => {
     const modifiedAnswers = question.answers.map((answer) => {
-      if (answer.id === selectedAnswer.id) {
-        return answer;
-      }
-      return { ...answer, selected: false };
+      return { ...answer, selected: answer.id === selectedAnswer.id };
     });
     setQuestion({ ...question, answers: modifiedAnswers });
     setAnswer(selectedAnswer.isCorrect);
@@ -82,12 +79,10 @@ const QuestionComponent: NextPageWithLayout = () => {
               priority
               placeholder='blur'
               onClick={() => goToNextQuestion(answer)}
-              className={cx(
-                "rounded-md border-4 border-green-200 shadow-md transition-all ease-in-out active:scale-110",
-                {
-                  "opacity-0 duration-700": answer.selected === false,
-                }
-              )}
+              className={cx("rounded-md border-4 border-green-200 shadow-md transition-all duration-700 ease-in-out", {
+                "opacity-0": answer.selected === false,
+                "scale-110": answer.selected === true,
+              })}
             />
           ))}
         </div>
