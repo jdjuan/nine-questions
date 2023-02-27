@@ -63,7 +63,8 @@ const QuestionComponent = () => {
           className='w-10/12 rounded-md border-2 border-green-200'
         />
       </div>
-      <p className='mt-10 mb-2 px-10'>Pick the person who most likely invented this based on their looks:</p>
+      {/* <p className='mt-10 mb-2 px-16'>Pick the person your gut feeling tells you:</p> */}
+      <p className='mt-10 mb-2 px-16'>Pick the person who most likely invented this:</p>
       <div className='mx-auto grid w-11/12 grid-cols-2 place-items-center gap-4 p-4'>
         {question.answers.map((answer, index) => (
           <Image

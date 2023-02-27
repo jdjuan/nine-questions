@@ -118,7 +118,7 @@ const Done = () => {
           <a className='text-green-200 underline' href='mailto:david.juanherrera@gmail.com'>
             introduce yourself
           </a>{" "}
-          in an email or simply check my{" "}
+          or simply check my{" "}
           <a className='text-green-200 underline' href='https://jdjuan.io/' target='_blank' rel='noreferrer'>
             personal website
           </a>{" "}
