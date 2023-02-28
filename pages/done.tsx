@@ -90,11 +90,11 @@ const Done = () => {
         </div>
 
         <div className='mx-auto grid max-w-md rounded-xl border-2 p-5 pt-1 text-center text-sm md:px-6'>
-          <p className='p-2 md:px-4'>
-            Know someone who could be inspired by this project? Or someone who needs a reminder?
+          <p className='p-2 md:px-8'>
+            Do you know someone who needs a reminder of the potential women have?
             <br />
             <br />
-            <span className='text-green-200'>Share the link with them:</span>
+            <span className='text-green-200'>Share this link with them:</span>
           </p>
           <div className='mx-auto grid w-11/12'>
             <Button
