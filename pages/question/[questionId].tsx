@@ -6,16 +6,18 @@ import { Answer } from "@/models/answer.model";
 import { AnswerRequest } from "@/models/answer.request";
 import { Question } from "@/models/question.model";
 import axios from "axios";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useState } from "react";
 import MainLayout from "@/components/main-layout";
 import cx from "classnames";
 import { NextPageWithLayout } from "@/pages/_app";
 import AnimatedLayout from "@/components/animated-layout";
 import { useTimeout } from "usehooks-ts";
 import { isDev } from "@/utils/utils";
+import useSound from "use-sound";
 
 const QuestionComponent: NextPageWithLayout = () => {
   const router = useRouter();
+  const [play] = useSound("/select2.mp3");
   const { questionId } = router.query;
   const [, setAnswer] = useLocalStorage(`answer${questionId}`, true);
   const [question, setQuestion] = useState<Question>();
@@ -40,6 +42,7 @@ const QuestionComponent: NextPageWithLayout = () => {
       const modifiedAnswers = question.answers.map((answer) => {
         return { ...answer, selected: answer.id === selectedAnswer.id };
       });
+      play();
       storeAnswer(selectedAnswer);
       setQuestion({ ...question, answers: modifiedAnswers });
       setAnswer(selectedAnswer.isCorrect);
@@ -72,7 +75,7 @@ const QuestionComponent: NextPageWithLayout = () => {
                 alt='Invention Picture'
                 priority
                 placeholder='blur'
-                className='w-10/12 max-w-[12rem] rounded-md border-2 border-green-200'
+                className='w-10/12 max-w-[16rem] rounded-md border-2 border-green-200'
               />
             </div>
             <div>

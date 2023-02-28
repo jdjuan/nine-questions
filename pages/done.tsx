@@ -41,10 +41,10 @@ const Done = () => {
 
   return (
     <AnimatedLayout>
-      <div className='m-8 grid gap-10 sm:m-12 md:m-16 md:mx-auto md:max-w-prose'>
+      <div className='m-8 grid gap-10 sm:m-12 md:mx-auto md:max-w-prose'>
         <div className='grid place-items-center gap-8 text-center text-green-200'>
           <h2 className='mb-2 font-headline text-5xl font-bold'>Your Score</h2>
-          <div className='grid aspect-square w-6/12 max-w-[10rem] place-items-center rounded-full border-8 border-yellow'>
+          <div className='grid aspect-square w-6/12 max-w-[10rem] animate-wiggle place-items-center rounded-full border-8 border-yellow'>
             <span className='text-5xl font-bold text-yellow'>{score}</span>
           </div>
           <div>
@@ -89,21 +89,23 @@ const Done = () => {
           <p>Thanks for taking part!</p>
         </div>
 
-        <div className='grid rounded-xl border-2 p-5 pt-1 text-center text-sm'>
-          <p className='p-2'>
+        <div className='mx-auto grid max-w-md rounded-xl border-2 p-5 pt-1 text-center text-sm md:px-6'>
+          <p className='p-2 md:px-4'>
             Know someone who could be inspired by this project? Or someone who needs a reminder?
             <br />
             <br />
             <span className='text-green-200'>Share the link with them:</span>
           </p>
-          <Button
-            handleClick={() => {
-              setCopyLinkText("COPIED!");
-              copy("https://nine-questions.jdjuan.io");
-            }}
-          >
-            {copyLinkText}
-          </Button>
+          <div className='mx-auto grid w-11/12'>
+            <Button
+              handleClick={() => {
+                setCopyLinkText("COPIED!");
+                copy("https://nine-questions.jdjuan.io");
+              }}
+            >
+              {copyLinkText}
+            </Button>
+          </div>
         </div>
         {/* <div>
       <Button handleClick={(startGame)}>START</Button>
@@ -150,7 +152,11 @@ const Done = () => {
           <h2 className='font-headline text-2xl text-green-200'>Who am I?</h2>
           <p>
             My name is Juan Herrera, and I&apos;m currently building a project a month.{" "}
-            <span className='font-semibold text-green-200'>Nine Questions</span> was the project I built in February.
+            <span className='font-semibold text-green-200'>
+              {" "}
+              <br /> Nine Questions
+            </span>{" "}
+            was the project I built in February.
           </p>
           <p>
             If you are curious about what March or April will look like, you can{" "}

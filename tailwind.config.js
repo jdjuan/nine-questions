@@ -19,6 +19,19 @@ module.exports = {
         headline: ["var(--font-roboto)", ...fontFamily.mono],
         ui: ["var(--font-inter)", ...fontFamily.sans],
       },
+      keyframes: {
+        wiggle: {
+          "0%": { transform: "rotate(-10deg) scale(0)", opacity: 0 },
+          "20%": { transform: "rotate(10deg)" },
+          "40%": { transform: "rotate(-5deg)" },
+          "60%": { transform: "rotate(5deg)" },
+          "80%": { transform: "rotate(-2deg)" },
+          "100%": { transform: "rotate(0deg) scale(1)", opacity: 1 },
+        },
+      },
+      animation: {
+        wiggle: "wiggle 2s ease-in-out",
+      },
     },
     colors: {
       slate: colors.slate,
