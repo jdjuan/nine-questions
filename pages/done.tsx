@@ -167,6 +167,7 @@ const Done = () => {
             >
               SHARE ON TWITTER
             </Button>
+            <Button url='/credits'>CREDITS AND SOURCES</Button>
             <Button url='/'>START AGAIN</Button>
           </div>
         </div>

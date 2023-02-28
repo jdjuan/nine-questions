@@ -14,7 +14,7 @@ const Button: NextPage<Props> = ({ handleClick, children, url, target }) => {
     <>
       {url && (
         <Link
-          className='rounded-md bg-yellow py-2 px-4 text-center text-xl text-green-900 shadow-md'
+          className='rounded-md bg-yellow py-2 px-4 text-center text-xl text-green-900 shadow-md transition-all ease-in-out hover:scale-110'
           href={url}
           target={target}
         >
