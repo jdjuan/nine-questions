@@ -15,24 +15,27 @@ export default function MainLayout({ children }: Props) {
         {/* Primary Meta Tags */}
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='title' content='Nine Questions' />
-        <meta name='description' content='Guess who invented what based on their looks.' />
+        <meta name='description' content='A game in which your gut feeling is more important than your knowledge.' />
         <link rel='icon' href='/favicon.ico' />
 
         {/* Open Graph / Facebook */}
-        {/* <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://jdjuan.io/' />
-        <meta property='og:title' content='Juan Herrera' />
-        <meta property='og:description' content="Find my latest insights on the topics I'm most passionate about." />
-        <meta property='og:image' content='https://jdjuan.io/og-card.png' /> */}
+        <meta property='og:type' content='website' />
+        <meta property='og:url' content='https://nine-questions.jdjuan.io/' />
+        <meta property='og:title' content='Nine Questions' />
+        <meta
+          property='og:description'
+          content='A game in which your gut feeling is more important than your knowledge.'
+        />
+        <meta property='og:image' content='https://nine-questions.jdjuan.io/meta.png' />
         {/* TWITTER  */}
-        {/* <meta property='twitter:card' content='summary_large_image' />
-        <meta property='twitter:url' content='https://jdjuan.io/' />
-        <meta property='twitter:title' content='Juan Herrera' />
+        <meta property='twitter:card' content='summary_large_image' />
+        <meta property='twitter:url' content='https://nine-questions.jdjuan.io/' />
+        <meta property='twitter:title' content='Nine Questions' />
         <meta
           property='twitter:description'
-          content="Find my latest insights on the topics I'm most passionate about."
+          content='A game in which your gut feeling is more important than your knowledge.'
         />
-        <meta property='twitter:image' content='https://jdjuan.io/og-card.png'></meta> */}
+        <meta property='twitter:image' content='https://nine-questions.jdjuan.io/meta.png'></meta>
       </Head>
       <Script async src='https://www.googletagmanager.com/gtag/js?id=G-CS7GWP4SEG'></Script>
       <Script

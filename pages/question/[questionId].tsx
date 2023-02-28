@@ -57,7 +57,7 @@ const QuestionComponent: NextPageWithLayout = () => {
     <AnimatedLayout>
       {question && (
         <div className='text-center'>
-          <h2 className='bg-yellow p-5 font-headline text-3xl font-semibold text-green-900'>
+          <h2 className='bg-yellow p-5 font-headline text-3xl font-semibold text-green-900 md:text-4xl'>
             {question.id !== "9" ? `QUESTION #${question.id}` : "Last Question!"}
             <div className='font-normal'>
               {question.id === "3" && <p className='mt-2 text-sm'>(6 questions left!)</p>}
@@ -66,9 +66,9 @@ const QuestionComponent: NextPageWithLayout = () => {
           </h2>
           <div className='grid'>
             <div className='mt-8 grid place-items-center gap-8 px-8 md:gap-4'>
-              <h3 className='text-lg'>
+              <h3 className='text-lg font-light md:mb-4 md:text-xl'>
                 Who invented the{" "}
-                <span className='text-green-200 underline underline-offset-2'>{question?.invention}</span>?
+                <span className='font-medium text-green-200 underline-offset-2'>{question?.invention}</span>?
               </h3>
               <Image
                 src={question?.inventionImageUrl}
@@ -79,7 +79,7 @@ const QuestionComponent: NextPageWithLayout = () => {
               />
             </div>
             <div>
-              <p className='mt-10 mb-2 px-16'>Pick the person who most likely invented this:</p>
+              <p className='mt-10 mb-2 px-16 font-light md:text-lg'>Pick the person who most likely invented this:</p>
               <div className='lg mx-auto grid w-11/12 max-w-3xl grid-cols-2 place-items-center gap-4 p-4 md:grid-cols-4 md:gap-0'>
                 {question.answers.map((answer, index) => (
                   <Image
