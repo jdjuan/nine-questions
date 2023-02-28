@@ -41,7 +41,7 @@ const Done = () => {
 
   return (
     <AnimatedLayout>
-      <div className='m-8 grid gap-10 sm:m-12 md:mx-auto md:max-w-prose'>
+      <div className='m-8 grid gap-10 sm:m-12 md:mx-auto md:max-w-2xl'>
         <div className='grid place-items-center gap-8 text-center text-green-200'>
           <h2 className='mb-2 font-headline text-5xl font-bold'>Your Score</h2>
           <div className='grid aspect-square w-6/12 max-w-[10rem] animate-wiggle place-items-center rounded-full border-8 border-yellow'>
@@ -54,7 +54,7 @@ const Done = () => {
             </p>
           </div>
         </div>
-        <div className='grid gap-4'>
+        <div className='grid gap-4 md:max-w-prose'>
           {!perfectScore && (
             <>
               <p>
@@ -107,43 +107,31 @@ const Done = () => {
             </Button>
           </div>
         </div>
-        {/* <div>
-      <Button handleClick={(startGame)}>START</Button>
-        <a className='' href='https://twitter.com/intent/tweet?text=Hello%20world'>
-          Tweet
-        </a>
-      </div> */}
         <div className='grid gap-4'>
           <h2 className='font-headline text-2xl text-green-200'>Who are these women?</h2>
           <div className='grid gap-4 md:grid-cols-2'>
             {questionSet.map(({ id, invention, inventor, inventorImageUrl, year, note }) => (
-              <div key={id} className='flex rounded-lg  bg-green-900 p-4 text-green-200'>
-                <Image
-                  src={inventorImageUrl}
-                  alt={`Photo of ${inventor}`}
-                  priority
-                  className='h-fit w-20 rounded-md border-green-200'
-                />
-                <div className='pl-4'>
-                  <div>
-                    <span className='text-lg capitalize'>
-                      {inventor}
-                      {/* {invention} ({year}) */}
-                    </span>
+              <div key={id} className='rounded-lg  bg-green-900 p-4 text-green-200'>
+                <div className='flex'>
+                  <Image
+                    src={inventorImageUrl}
+                    alt={`Photo of ${inventor}`}
+                    priority
+                    className='h-fit w-20 rounded-md border-green-200'
+                  />
+                  <div className='pl-4'>
+                    <div>
+                      <span className='text-xl capitalize'>{inventor}</span>
+                    </div>
+                    <div className='font-light opacity-80'>
+                      <span className='capitalize'>{invention}</span>
+                    </div>
+                    <div className='text-sm font-light opacity-80'>
+                      Year: <span className=''>{year}</span>
+                    </div>
                   </div>
-                  <div className='text-sm font-extralight'>
-                    <span className='capitalize'>
-                      {invention} ({year})
-                    </span>
-                  </div>
-                  {/* <div className='text-sm'>
-                Year: <span className='font-semibold'>{year}</span>
-              </div> */}
-                  {/* <div className='text-sm'>
-                Invented the <span className='font-bold'>{invention}</span> in {year}.
-              </div> */}
-                  {/* <div className='mt-2 text-xs'>{note}</div> */}
                 </div>
+                <div className='mt-4 rounded-md bg-green-700 p-2 text-xs opacity-70'>{note}</div>
               </div>
             ))}
           </div>
@@ -170,10 +158,6 @@ const Done = () => {
             in a few weeks.
           </p>
         </div>
-
-        {/* <Link href='/' scroll={false}>
-        <span className='text-green-200 underline underline-offset-2'>Start</span>
-      </Link> */}
         <div className='mx-auto w-5/12 border border-green-400'></div>
         <div className='grid gap-4'>
           <Button
