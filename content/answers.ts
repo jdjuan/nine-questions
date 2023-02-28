@@ -11,7 +11,7 @@ import man13 from "../public/man13.webp";
 import man14 from "../public/man14.jpeg";
 import man15 from "../public/man15.jpeg";
 import man16 from "../public/man16.jpeg";
-import man17 from "../public/man17.jpeg";
+import man17 from "../public/man177.jpeg";
 import man18 from "../public/man18.jpeg";
 import man19 from "../public/man19.jpeg";
 import man20 from "../public/man20.jpeg";

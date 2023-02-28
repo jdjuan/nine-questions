@@ -18,6 +18,7 @@ import useSound from "use-sound";
 const QuestionComponent: NextPageWithLayout = () => {
   const router = useRouter();
   const [play] = useSound("/select2.mp3");
+  const [playSuccess] = useSound("/success.mp3");
   const { questionId } = router.query;
   const [, setAnswer] = useLocalStorage(`answer${questionId}`, true);
   const [question, setQuestion] = useState<Question>();
@@ -43,6 +44,11 @@ const QuestionComponent: NextPageWithLayout = () => {
         return { ...answer, selected: answer.id === selectedAnswer.id };
       });
       play();
+      if (question.id === "9") {
+        setTimeout(() => {
+          playSuccess();
+        }, 1300);
+      }
       storeAnswer(selectedAnswer);
       setQuestion({ ...question, answers: modifiedAnswers });
       setAnswer(selectedAnswer.isCorrect);
@@ -94,6 +100,8 @@ const QuestionComponent: NextPageWithLayout = () => {
                       {
                         "opacity-0 duration-700": answer.selected === false,
                         "scale-110 duration-700": answer.selected === true,
+                        "place-self-end md:place-self-center": index % 2 === 0,
+                        "place-self-start md:place-self-center": index % 2 !== 0,
                       }
                     )}
                   />
