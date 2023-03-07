@@ -21,6 +21,9 @@ const Credits = () => {
             <div>
               <Bullet /> Adriana Maguea
             </div>
+            <div>
+              <Bullet /> Yani Asari
+            </div>
           </div>
         </div>
         <div>
